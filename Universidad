@@ -1,0 +1,38 @@
+public class Universidad {
+ private ListaEnlazada personas;
+ public Universidad() {
+ personas = new ListaEnlazada();
+}
+
+public void agregarPersona(Persona persona) {
+    personas.agregar(persona);
+}
+
+public void mostrarPersonas() {
+    mostrarPersonasRecursivo(personas.getPrimero());
+}
+
+private void mostrarPersonasRecursivo(Nodo actual) {
+ if (actual == null) return;
+  System.out.println(actual.dato);
+  mostrarPersonasRecursivo(actual.siguiente);
+}
+
+public int contarEstudiantesPorCarrera(String carrera) {
+    return contarRecursivo(personas.getPrimero(), carrera);
+}
+
+private int contarRecursivo(Nodo actual, String carrera) {
+    if (actual == null) return 0;
+    Persona p = (Persona) actual.dato;
+    int suma = 0;
+
+if (p instanceof Estudiante) {
+    Estudiante e = (Estudiante) p;
+    if (e.getCarrera().equalsIgnoreCase(carrera)) {
+    suma = 1;
+}
+}
+return suma + contarRecursivo(actual.siguiente, carrera);
+}
+}

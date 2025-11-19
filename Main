@@ -1,0 +1,33 @@
+public class Main {
+    public static void main(String[] args) {
+    Universidad uni = new Universidad();
+
+    Profesor prof1 = new Profesor("Walter", "Molina", 25, "41343424", "Programación");
+    Profesor prof2 = new Profesor("Matías", "Fernandez", 50, "21433546", "Base de datos");
+
+    Estudiante est1 = new Estudiante("Agustín", "Pereyra", 22, "44954237", "Programador Universitaro de sistemas");
+    est1.agregarMateria(new Materia("Álgebra", 8.5));
+    est1.agregarMateria(new Materia("Física", 7.5));
+
+    Estudiante est2 = new Estudiante("Berenice", "Góngora", 21, "45474265", "Programador Universitaro de sistemas");
+    est2.agregarMateria(new Materia("Programación I", 9.0));
+    est2.agregarMateria(new Materia("Álgebra", 6.0));
+
+    Estudiante est3 = new Estudiante("Lucía", "Martinez", 20, "43424543", "Diseño de comunicación");
+    est3.agregarMateria(new Materia("Ingles técnico II", 8.0));
+
+    Personal pers1 = new Personal("Emilia", "Carballo", 35, "34513234", "Secretaria", "Administración");
+
+    uni.agregarPersona(prof1);
+    uni.agregarPersona(prof2);
+    uni.agregarPersona(est1);
+    uni.agregarPersona(est2);
+    uni.agregarPersona(est3);
+    uni.agregarPersona(pers1);
+
+    System.out.println("=== Lista de personas en la universidad ===");
+    uni.mostrarPersonas();
+
+System.out.println("\\nEstudiantes en Ingeniería: " + uni.contarEstudiantesPorCarrera("Ingeniería"));
+}
+}

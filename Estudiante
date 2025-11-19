@@ -1,0 +1,40 @@
+public class Estudiante extends Persona {
+    private String carrera;
+    private ListaEnlazada materias;
+
+public Estudiante(String nombre, String apellido, int edad, String documento, String carrera) {
+    super(nombre, apellido, edad, documento);
+    this.carrera = carrera;
+    this.materias = new ListaEnlazada();
+}
+
+public void agregarMateria(Materia materia) {
+    materias.agregar(materia);
+}
+
+public String getCarrera() {
+    return carrera;
+}
+public double calcularPromedioRecursivo() {
+    return calcularPromedioRecursivo(materias.getPrimero(), 0, 0);
+}
+private double calcularPromedioRecursivo(Nodo actual, int contador, double suma) {
+    if (actual == null) {
+    return contador == 0 ? 0 : suma / contador;
+}
+
+Materia materia = (Materia) actual.dato;
+
+return calcularPromedioRecursivo(
+actual.siguiente,
+contador + 1,
+suma + materia.getNota());
+}
+
+public String toString() {
+return "Estudiante: " + super.toString() +
+" - Carrera: " + carrera +
+" - Promedio (rec): " + calcularPromedioRecursivo();
+}
+}
+

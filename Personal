@@ -1,0 +1,15 @@
+public class Personal extends Persona {
+    private String puesto;
+    private String departamento;
+
+public Personal(String nombre, String apellido, int edad, String documento, String puesto, String departamento) {
+    super(nombre, apellido, edad, documento);
+    this.puesto = puesto;
+    this.departamento = departamento;
+}
+
+@Override
+ public String toString() {
+        return "Personal: " + super.toString() + " - Puesto: " + puesto + " - Departamento: " + departamento;
+    }
+}
